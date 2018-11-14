@@ -34,6 +34,6 @@ class DatabaseNotification implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('notification');
+        return new PrivateChannel('notification.'.$this->notification['user_id']);
     }
 }
