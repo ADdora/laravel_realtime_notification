@@ -16,7 +16,7 @@ class NotificationController extends Controller
         $data = [
             'user_id' => Auth::id(),
             'title' => 'test',
-            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now()->toDateTimeString(),
         ];
         event(new DatabaseNotification($data));
     }
