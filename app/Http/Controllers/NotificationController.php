@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\DatabaseNotification;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,8 @@ class NotificationController extends Controller
 
         $data = [
             'user_id' => Auth::id(),
-            'name' => 'test',
+            'title' => 'test',
+            'created_at' => Carbon::now(),
         ];
         event(new DatabaseNotification($data));
     }
