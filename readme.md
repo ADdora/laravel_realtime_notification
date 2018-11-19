@@ -4,8 +4,8 @@
 
 ## Introduction
 
-This a real time notification project using Laravel, Pusher and Laravel-Echo,
-this project was built to send notification to the currently logged in user only via a private channel the currently logged in user id
+This is a real time notification project using Laravel, Pusher and Laravel-Echo,
+this project is built to send notification to the currently logged in user only via a private channel.
 
 ## Installation Guidelines
 
@@ -13,9 +13,11 @@ this project was built to send notification to the currently logged in user only
 
 2. `cp .env.example .env`
 
-3. `php artisan key:generate`
+3. `composer install`
 
-4. edit database configuration in `.env` file
+4. `php artisan key:generate`
+
+5. edit database configuration in `.env` file
 
     ```
         DB_DATABASE=
@@ -23,31 +25,31 @@ this project was built to send notification to the currently logged in user only
         DB_PASSWORD=
     ```
 
-5. add your pusher app keys `.env` file
+6. create a [Pusher](https://pusher.com) app and add your pusher app keys in `.env` file
     
     ```
         PUSHER_APP_ID=
         PUSHER_APP_KEY=
         PUSHER_APP_SECRET=
-        PUSHER_APP_CLUSTER=mt1
+        PUSHER_APP_CLUSTER=
          
-        MIX_PUSHER_APP_KEY=
-        MIX_PUSHER_APP_CLUSTER=
+        MIX_PUSHER_APP_KEY="" -> same as [PUSHER_APP_KEY]
+        MIX_PUSHER_APP_CLUSTER="" -> same as [PUSHER_APP_CLUSTER]
     ```
  
- 6. change you broadcast driver in `.env` file to pusher
+ 7. change broadcast driver in `.env` file to pusher
  
     ```
         BROADCAST_DRIVER=pusher
     ```
   
- 7. `composer install`
- 
  8. `php artisan migrate`
  
- 9. create new user
+ 9. `php artisan serve`
  
- 10. open `localhost:8000/send` in browser 
+ 10. open `localhost:8000/register` and register a new user 
+ 
+ 10. hitting this link `localhost:8000/send` should send a notification to this user
  
  ## License
   
